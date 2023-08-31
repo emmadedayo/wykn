@@ -20,7 +20,7 @@ const createAccountService = async (data, callback) => {
             }else{
                   const salt = await bcrypt.genSalt(10);
                   resource.password = await bcrypt.hash(resource.password, salt);
-                  const newUser = await models.user.create(data);
+                  const newUser = await models.users.create(data);
                   if (newUser) {
                       callback(handleResponse(200, true, "User created successfully"));
                   } else {
